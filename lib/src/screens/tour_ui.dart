@@ -14,7 +14,7 @@ class TourUI extends StatelessWidget {
       onTap: (() => FocusManager.instance.primaryFocus?.unfocus()),
       child: Scaffold(
         backgroundColor: Color(0xffF6F6F6),
-        appBar: AppBar(title: Text('sdvsdvdv')),
+        appBar: AppBar(title: Text('Destinations')),
         body: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,

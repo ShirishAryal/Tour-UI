@@ -5,7 +5,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../models/suggestions.dart';
 
 class DestinationSuggestion extends StatelessWidget {
-  final List<Suggestion> _suggestions = [
+  final List<Suggestion> suggestions = [
     Suggestion('Place Name 1', 'Description ', 'assets/images/nature.jpg'),
     Suggestion('Place Name 2', 'Description', 'assets/images/dest.jpg'),
     Suggestion('Place Nasssme 3', 'Descriccsption', 'assets/images/nature.jpg'),
@@ -19,7 +19,7 @@ class DestinationSuggestion extends StatelessWidget {
         Container(
           margin: EdgeInsets.all(10),
           alignment: Alignment.topLeft,
-          child: Text('Popular dest'),
+          child: Text('Popular Destinations'),
         ),
         CarouselSlider(
           options: CarouselOptions(
@@ -31,7 +31,7 @@ class DestinationSuggestion extends StatelessWidget {
             autoPlayCurve: Curves.easeInOutCubic,
             aspectRatio: 18 / 9,
           ),
-          items: _suggestions.map((instance) {
+          items: suggestions.map((instance) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
