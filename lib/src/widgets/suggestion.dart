@@ -19,7 +19,7 @@ class DestinationSuggestion extends StatelessWidget {
         Container(
           margin: EdgeInsets.all(10),
           alignment: Alignment.topLeft,
-          child: Text('Popular'),
+          child: Text('Popular dest'),
         ),
         CarouselSlider(
           options: CarouselOptions(
