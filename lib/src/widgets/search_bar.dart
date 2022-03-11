@@ -14,25 +14,34 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 5),
-      height: 60,
+      height: 50,
       child: Padding(
         padding: const EdgeInsets.all(2.0),
         child: TextFieldSearch(
           decoration: InputDecoration(
-            prefixIcon: Icon(Icons.search),
+            hintText: 'Eg. Pokhara',
+            prefixIcon: Icon(
+              Icons.search,
+              color: Colors.grey.shade500,
+            ),
             suffixIcon: IconButton(
-              icon: Icon(Icons.clear),
+              icon: Icon(
+                Icons.clear,
+                color: Colors.grey.shade600,
+              ),
               onPressed: () {
                 _searchController.clear();
                 FocusManager.instance.primaryFocus?.unfocus();
               },
             ),
-            border: OutlineInputBorder(
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide:
+                    BorderSide(color: Colors.grey.shade600, width: 2.0)),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey.shade500, width: 1.5),
               borderRadius: BorderRadius.circular(20.0),
             ),
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.black, width: 1.5),
-                borderRadius: BorderRadius.circular(20.0)),
           ),
           initialList: dummyList,
           label: 'Search bar',
