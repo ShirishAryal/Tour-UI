@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:textfield_search/textfield_search.dart';
-import '../models/suggestions.dart';
 import './suggestion.dart';
 
 class SearchBar extends StatelessWidget {

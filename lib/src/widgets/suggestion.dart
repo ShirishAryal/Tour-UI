@@ -2,14 +2,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import '../models/suggestions.dart';
+import '../screens/detail.dart';
+import '../resources/dummy_data.dart';
 
 class DestinationSuggestion extends StatelessWidget {
-  final List<Suggestion> suggestions = [
-    Suggestion('Place Name 1', 'Description ', 'assets/images/nature.jpg'),
-    Suggestion('Place Name 2', 'Description', 'assets/images/dest.jpg'),
-    Suggestion('Place Nasssme 3', 'Descriccsption', 'assets/images/nature.jpg'),
-  ];
+  void destinationDetail(BuildContext context, String name, String address,
+      String desc, String image) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) {
+        return DetailPage(name, address, desc, image);
+      }),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +23,22 @@ class DestinationSuggestion extends StatelessWidget {
         Container(
           margin: EdgeInsets.all(10),
           alignment: Alignment.topLeft,
-          child: Text('Popular Destinations'),
+          child: Text(
+            'Popular Destinations',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
         ),
         CarouselSlider(
           options: CarouselOptions(
-            viewportFraction: 0.85,
+            viewportFraction: 0.95,
             initialPage: 0,
             enlargeCenterPage: true,
             autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
+            autoPlayInterval: Duration(seconds: 4),
             autoPlayCurve: Curves.easeInOutCubic,
-            aspectRatio: 18 / 9,
+            aspectRatio: 16 / 9,
           ),
-          items: suggestions.map((instance) {
+          items: DUMMY_DETAILS.map((instance) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
@@ -45,28 +52,37 @@ class DestinationSuggestion extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Stack(
-                    alignment: Alignment.bottomLeft,
-                    children: <Widget>[
-                      Positioned(
+                  child: InkWell(
+                    onTap: () => destinationDetail(context, instance.name,
+                        instance.address, instance.description, instance.image),
+                    splashColor: Theme.of(context).primaryColor,
+                    borderRadius: BorderRadius.circular(20),
+                    child: Stack(
+                      alignment: Alignment.bottomLeft,
+                      children: <Widget>[
+                        Positioned(
+                            child: Container(
+                          color: Colors.white.withOpacity(0.4),
                           child: ListTile(
-                        title: Text(
-                          instance.name,
-                          style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Text(
-                          instance.description,
-                          style: TextStyle(fontSize: 16.0),
-                        ),
-                      )),
-                    ],
+                            title: Text(
+                              instance.name,
+                              style: TextStyle(
+                                  fontSize: 18.0, fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text(
+                              instance.description,
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        )),
+                      ],
+                    ),
                   ),
                 );
               },
             );
           }).toList(),
-        )
+        ),
       ]),
     );
   }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../widgets/suggestion.dart';
 import '../widgets/theme_list.dart';
 import '../widgets/search_bar.dart';
+import './detail.dart';
 
 class TourUI extends StatelessWidget {
   const TourUI({Key? key}) : super(key: key);

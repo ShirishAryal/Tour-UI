@@ -23,7 +23,10 @@ class ThemeList extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(left: 5),
             alignment: Alignment.topLeft,
-            child: Text('Theme'),
+            child: Text(
+              'Theme',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
           ),
           Expanded(
             child: ListView.custom(
