@@ -24,7 +24,7 @@ class DestinationSuggestion extends StatelessWidget {
           margin: EdgeInsets.all(10),
           alignment: Alignment.topLeft,
           child: Text(
-            'Popular Destinations',
+            'Suggested Destinations',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
